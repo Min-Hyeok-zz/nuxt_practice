@@ -3,13 +3,13 @@
     <div>
       <app-logo/>
       <h1 class="title">
-        nuxt_project
+        게시판
       </h1>
       <h2 class="subtitle">
-        Nuxt.js project
+        게시글 리스트
       </h2>
       <div class="links">
-        <a href="/board/list" class="button--green">게시판</a>
+        <a href="/" class="button--green">메인으로</a>
       </div>
     </div>
   </section>
