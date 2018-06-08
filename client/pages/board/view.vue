@@ -14,12 +14,20 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import axios from 'axios'
 
 export default {
-  components: {
-    AppLogo
-  }
+  // data () {
+  //   return {
+  //     view: []
+  //   }
+  // },
+  // created () {
+  //   axios.get(`http://127.0.0.1:8080/board/view/${this.$route.params.idx}`)
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  // }
 }
 </script>
 

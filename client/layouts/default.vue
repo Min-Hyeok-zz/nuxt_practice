@@ -9,9 +9,6 @@
         <li>
           <nuxt-link :to="`/board/list`" class="button--green">게시판</nuxt-link>
         </li>
-        <li>
-          <nuxt-link :to="`/board/write`" class="button--green">글작성</nuxt-link>
-        </li>
       </ul>
     </header>
     <nuxt/>
@@ -120,5 +117,12 @@ html {
   color: #35495e;
   border-radius: 5px;
   border:1px solid #bebebe;
+}
+.board-list{
+  margin-top: 10px;
+  display: flex;
+}
+.board-list > ul{
+  text-align: left;
 }
 </style>

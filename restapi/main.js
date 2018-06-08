@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const fs = require('fs');
-const ejs = require('ejs');
+// const ejs = require('ejs');
 const app = express();
 
 var server = app.listen(8080,function(){
