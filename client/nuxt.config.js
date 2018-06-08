@@ -2,6 +2,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  css: [
+    'assets/main.css'
+  ],
   head: {
     title: 'nuxt_project',
     meta: [

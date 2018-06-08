@@ -3,11 +3,15 @@
     <header id="header">
       <div class="logo"><app-logo/></div>
       <ul id="gnb">
-        <li><a href="/member/login" class="button--green">로그인</a></li>
-        <li><a href="/member/add" class="button--green">회원가입</a></li>
-        <li><a href="/" class="button--green">메인</a></li>
-        <li><a href="/board/list" class="button--green">게시판</a></li>
-        <li><a href="#!" class="button--green">로그아웃</a></li>
+        <li>
+          <nuxt-link :to="`/`" class="button--green">메인</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/board/list`" class="button--green">게시판</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/board/write`" class="button--green">글작성</nuxt-link>
+        </li>
       </ul>
     </header>
     <nuxt/>

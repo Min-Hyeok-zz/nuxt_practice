@@ -5,8 +5,8 @@ const fs = require('fs');
 const ejs = require('ejs');
 const app = express();
 
-var server = app.listen(3001,function(){
-    console.log('3001 포트 에서 실행대따');
+var server = app.listen(8080,function(){
+    console.log('8080 뽀올트');
 })
 
 app.use(express.static('public'));
