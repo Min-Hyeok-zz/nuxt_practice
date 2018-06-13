@@ -24,22 +24,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import mh from '~/plugins/mh'
 export default {
-  data () {
+  async asyncData ({ params }, callback) {
+    mh.getData('/board', data => {
+      callback(null, {list:data})
+    })
+  },
+  async data () {
     return {
       list: []
     }
-  },
-  created () {
-    axios.get('http://127.0.0.1:8080/board')
-    .then((res) => {
-      this.list = res.data
-      console.log(this.list)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
   }
 }
 </script>

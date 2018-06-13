@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const db = mysql.createConnection(require('../config/db.js'))
+const db = mysql.createConnection(require('./config/db.js'))
 
 db.connect((err) => {
     if (err) {
@@ -12,7 +12,7 @@ db.connect((err) => {
 module.exports = (app,fs) => {
 
     //게시글 리스트 출력
-    app.get('/board', (req,res) => {
+    app.get('/api/board', (req,res) => {
         const sql = 'select * from board order by date desc'
         db.query(sql, (err,results) => {
             res.json(results)
@@ -20,7 +20,7 @@ module.exports = (app,fs) => {
     })
 
     //게시글 보기 페이지
-    app.get('/board/:idx',(req,res) => {
+    app.get('/api/board/:idx',(req,res) => {
         const idx = req.params.idx
         const sql = `select * from board where idx=${idx}`
         db.query(sql, (err,results) => {
@@ -28,7 +28,7 @@ module.exports = (app,fs) => {
         })
     })
     
-    app.post('/board', (req,res) => {
+    app.post('/api/board', (req,res) => {
         const writer = req.body.writer
         const subject = req.body.subject
         const content = req.body.content
@@ -39,7 +39,7 @@ module.exports = (app,fs) => {
         })
     })
     
-    app.put('/board/:idx', (req,res) => {
+    app.put('/api/board/:idx', (req,res) => {
         const idx = req.params.idx
         const writer = req.body.writer
         const subject = req.body.subject

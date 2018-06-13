@@ -20,37 +20,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import mh from '~/plugins/mh'
 export default {
-  data () {
-    return {
-      writer:'',
-      subject:'',
-      content:''
-    }
-  },
   methods: {
-    boardAdd (e) {
+    async boardAdd (e) {
       e.preventDefault();
-      const url = 'http://localhost:8080/board/write'
+      const url = '/board'
       const frm = e.target
       const _this = this
-      axios.post(url, {
-        body: JSON.stringify({
-          writer: frm.writer.value,
-          subject: frm.subject.value,
-          content: frm.content.value
-        }),
-        headers : new Headers({
-          'Content-Type': 'application/json'
-        })
+      mh.postData(url, mh.serialize(frm), data => {
+        _this.$router.push(`./view/${data.insertId}`)
       })
-      .then(res => res.json())
-      .then(json => {
-        console.log(json)
-        alert('글이 작성되었습니다')
-      })
-      
     }
   }
 }

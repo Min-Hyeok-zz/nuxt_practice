@@ -1,9 +1,11 @@
+const webpack = require('webpack')
 module.exports = {
   /*
   ** Headers of the page
   */
   css: [
-    'assets/main.css'
+    'assets/main.css',
+    'assets/css/style.css'
   ],
   head: {
     title: 'nuxt_project',
@@ -36,6 +38,15 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: [
+      'jquery'
+    ],
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery',
+        jQuery: 'jquery',
+      }),
+    ]
   }
 }
