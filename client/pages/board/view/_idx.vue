@@ -31,9 +31,9 @@
         </tbody>
       </table>
       <div class="links">
-          <nuxt-link to="/board/list">뒤로가기</nuxt-link>
-          <nuxt-link :to="`/board/write/${$route.params.idx}`">수정하기</nuxt-link>
-          <a href="#" @click.prevent="boardDelete">삭제하기</a>
+          <nuxt-link to="/board/list" class="button--green">뒤로가기</nuxt-link>
+          <nuxt-link :to="`/board/write/${$route.params.idx}`" class="button--green">수정하기</nuxt-link>
+          <a href="#" @click.prevent="boardDelete" class="button--green">삭제하기</a>
       </div>
     </div>
   </section>
