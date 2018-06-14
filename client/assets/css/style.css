@@ -14,21 +14,43 @@ html {
     box-sizing: border-box;
     margin: 0;
     list-style: none;
+    color: inherit;
+    text-decoration: none;
   }
   
   #header{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    margin-top: 20px;
+    width: 100%;
+    height: 90px;
+    background: #526488;
+    transition: .6s;
+    overflow: hidden;
+    z-index: 1;
   }
   #gnb{
     display: flex;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index:9999;
   }
-  #gnb > li{
+  #gnb > li > a{
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    transition: .4s;
     margin: 0 5px;
+  }
+
+  #gnb > li > a:hover{
+    background: #fff;
+    color: #000;
   }
   
   .button--green {
@@ -39,6 +61,7 @@ html {
     text-decoration: none;
     padding: 10px 30px;
     transition: .4s;
+    cursor: pointer;
   }
   
   .button--green:hover {
@@ -69,11 +92,14 @@ html {
   
   .title {
     font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-    display: block;
     font-weight: 300;
-    font-size: 50px;
-    color: #35495e;
+    font-size: 28px;
+    color: #0f0f0f;
     letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    margin: 10px 0 10px 0;
   }
   
   .subtitle {
@@ -93,10 +119,34 @@ html {
     border-radius: 5px;
     border:1px solid #bebebe;
   }
-  .board-list{
+
+  #board-list{
+    max-width: 800px;
+    margin: 0 auto;
     margin-top: 10px;
-    display: flex;
   }
-  .board-list > ul{
-    text-align: left;
+  #board-list > tbody > tr > td,
+  #board-list > thead > tr > th{
+    padding: 0 10px;
+  }
+
+  .logo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  .form{
+    width: 500px;
+  }
+  .form > input[type='text'],
+  .form > input[type='password']{
+    width: 100%;
+    height: 40px;
+  }
+  .form > textarea{
+    width: 100%;
+    height: 200px;
+  }
+  .form > *{
+    margin-bottom: 10px;
   }

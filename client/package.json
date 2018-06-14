@@ -2,7 +2,7 @@
   "name": "nuxt_project",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "PPantech <alsgur0008@naver.com>",
+  "author": "Min-Hyeok <alsgur0008@naver.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",

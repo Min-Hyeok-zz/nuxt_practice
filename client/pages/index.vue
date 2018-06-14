@@ -2,22 +2,17 @@
   <section class="container">
     <div>
       <h1 class="title">
-        nuxt_project
+        메인
       </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
+      <a href="https://github.com/Min-Hyeok" class="button--green">Github 링크</a> 
+      <a href="http://minhyeok-kim.com" class="button--green">블로그 링크</a>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
 export default {
-  components: {
-    AppLogo
-  }
+
 }
 </script>
 

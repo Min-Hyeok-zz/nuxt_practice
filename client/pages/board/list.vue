@@ -1,24 +1,34 @@
 <template>
   <section class="container">
     <div>
-      <h1 class="title">
-        게시판
-      </h1>
-      <h2 class="subtitle">
-        게시글 리스트
-      </h2>
+      <h1 class="title">게시판</h1>
+      <table id="board-list">
+        <colgroup>
+          <col width="10%">
+          <col width="10%">
+          <col width="70%">
+          <col width="10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>글번호</th>
+            <th>작성자</th>
+            <th style="text-align: left;">글제목</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="data in list" :key="data.idx">
+            <td>{{data.idx}}</td>
+            <td>{{data.writer}}</td>
+            <td style="text-align: left;"> <nuxt-link :to="`/board/view/${data.idx}`">{{data.subject}}</nuxt-link></td>
+            <td>{{data.date.substr(5,5)}}</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="links">
         <nuxt-link :to="`/board/write`" class="button--green">글작성</nuxt-link>
       </div>
-      <div class="board-list">
-        <ul v-for="data in list" :key="data.idx">
-          <li>글번호 : {{ data.idx }}</li>
-          <li>작성자 : {{ data.writer }}</li>
-          <li>글제목 : <nuxt-link :to="`/board/view/${data.idx}`">{{ data.subject }}</nuxt-link></li>
-          <li>작성일 : {{ data.date }}</li>
-        </ul>
-      </div>
-      
     </div>
   </section>
 </template>
@@ -27,7 +37,7 @@
 import mh from '~/plugins/mh'
 export default {
   async asyncData ({ params }, callback) {
-    mh.getData('/board', data => {
+    mh.getData('/api/board', data => {
       callback(null, {list:data})
     })
   },
