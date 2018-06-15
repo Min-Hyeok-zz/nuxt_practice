@@ -27,7 +27,7 @@
         </tbody>
       </table>
       <div class="links">
-        <nuxt-link :to="`/board/write`" class="button--green">글작성</nuxt-link>
+        <nuxt-link v-if="this.$store.state.isMember" :to="`/board/write`" class="button--green">글작성</nuxt-link>
       </div>
     </div>
   </section>

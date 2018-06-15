@@ -43,9 +43,10 @@ module.exports = (app,fs) => {
     })
     
     //글삭제
-    app.post('/api/board/delete/:idx', (req,res) => {
-        const idx = req.params.idx
-        console.log(idx)
+    app.post('/api/delete', (req,res) => {
+        const idx = req.body.idx
+        const sql = `delete from board where idx=?`
+        db.query(sql, [idx])
     })
     
     //글작성
@@ -68,11 +69,20 @@ module.exports = (app,fs) => {
         const sql = `insert into member set id=?, pw=?, name=?`
         const chk = `select id from member where id='${id}'`
         db.query(chk, (err,results) => {
-            if (results[1]) {
+            if (results[0]) {
                 console.log('중복대따')
             } else{
                 db.query(sql, [id,pw,name])
             }
+            res.json(results)
+        })
+    })
+
+    app.post('/api/login', (req,res) => {
+        const id = req.body.id
+        const pw = req.body.pw
+        const sql = `select * from member where id=? and pw=?`
+        db.query(sql, [id,pw], (err,results) => {
             res.json(results)
         })
     })

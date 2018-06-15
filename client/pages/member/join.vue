@@ -15,6 +15,12 @@
 <script>
 import mh from '~/plugins/mh'
 export default {
+    created () {
+        if (this.$store.state.isMember) {
+            alert('이미 로그인 하셨습니다')
+            this.$router.go(-1)
+        }
+    },
     methods: {
         memberAdd(e){
             e.preventDefault()

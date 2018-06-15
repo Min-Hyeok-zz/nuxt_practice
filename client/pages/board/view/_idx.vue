@@ -32,8 +32,8 @@
       </table>
       <div class="links">
           <nuxt-link to="/board/list" class="button--green">뒤로가기</nuxt-link>
-          <nuxt-link :to="`/board/write/${$route.params.idx}`" class="button--green">수정하기</nuxt-link>
-          <a href="#" @click.prevent="boardDelete" class="button--green">삭제하기</a>
+          <nuxt-link v-if="this.$store.state.isMember" :to="`/board/write/${$route.params.idx}`" class="button--green">수정하기</nuxt-link>
+          <a href="#" v-if="this.$store.state.isMember" @click.prevent="boardDelete" class="button--green">삭제하기</a>
       </div>
     </div>
   </section>
@@ -53,8 +53,16 @@ export default {
     }
   },
   methods: {
-    async boardDelete (e) {
-      
+    boardDelete (e) {
+        const idx = this.view.idx
+        const url = `/api/delete`
+        const _this = this
+        if (confirm('삭제하시겠습니까?')) {
+          mh.postData(url, idx, data => {
+            alert('삭제되었습니다.')
+            _this.$router.push(`/board/list`)
+          })
+        }
     }
   }
 }
