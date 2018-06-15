@@ -54,11 +54,8 @@ export default {
   },
   methods: {
     async boardDelete (e) {
-      alert('test')
+      
     }
-  },
-  async created () {
-    
   }
 }
 </script>

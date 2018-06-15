@@ -30,6 +30,7 @@ module.exports = (app,fs) => {
         })
     })
     
+    //글작성 페이지
     app.post('/api/board', (req,res) => {
         const writer = req.body.writer
         const subject = req.body.subject
@@ -41,19 +42,37 @@ module.exports = (app,fs) => {
         })
     })
     
+    //글삭제
     app.post('/api/board/delete/:idx', (req,res) => {
         const idx = req.params.idx
         console.log(idx)
     })
-
+    
+    //글작성
     app.put('/api/board/:idx', (req,res) => {
         const idx = req.params.idx
         const writer = req.body.writer
         const subject = req.body.subject
         const content = req.body.content
-        const sql = `update board set writer=?, subject=?, content=? where idx = ?`;
+        const sql = `update board set writer=?, subject=?, content=? where idx = ?`
         db.query(sql, [writer,subject,content,idx], (err,results) => {
             console.log(sql)
+            res.json(results)
+        })
+    })
+
+    app.post('/api/member', (req,res) => {
+        const id = req.body.id
+        const pw = req.body.pw
+        const name = req.body.name
+        const sql = `insert into member set id=?, pw=?, name=?`
+        const chk = `select id from member where id='${id}'`
+        db.query(chk, (err,results) => {
+            if (results[1]) {
+                console.log('중복대따')
+            } else{
+                db.query(sql, [id,pw,name])
+            }
             res.json(results)
         })
     })

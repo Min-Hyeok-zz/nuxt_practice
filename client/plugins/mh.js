@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import axios from 'axios'
 import 'es6-promise/auto'
-const restUrl = 'http://127.0.0.1:8080'
+const restUrl = 'http://localhost:8080'
 export default {
     getData (url, callback) {
         axios.get(restUrl+url).then( res => {
