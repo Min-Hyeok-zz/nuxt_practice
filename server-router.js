@@ -43,8 +43,8 @@ module.exports = (app, fs) => {
     })
 
     //글삭제
-    app.post('/api/delete', (req, res) => {
-        const idx = req.body.idx
+    app.post('/api/delete/:idx', (req, res) => {
+        const idx = req.params.idx
         const sql = `delete from board where idx=?`
         db.query(sql, [idx])
     })

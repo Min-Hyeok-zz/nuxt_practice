@@ -25,6 +25,7 @@
     "npm": "^6.1.0",
     "nuxt": "^1.0.0",
     "sass-loader": "^7.0.3",
+    "sessionstorage": "^0.1.0",
     "style-loader": "^0.21.0",
     "vue-style-loader": "^4.1.0",
     "vuex": "^3.0.1",

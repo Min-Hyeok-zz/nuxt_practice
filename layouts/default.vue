@@ -16,9 +16,13 @@
 </template>
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import sessionStorage from 'sessionstorage'
 export default {
   components: {
     AppLogo
+  },
+  created () {
+    console.log(this.$store.state.isMember)
   },
   methods: {
     memberLogout(){

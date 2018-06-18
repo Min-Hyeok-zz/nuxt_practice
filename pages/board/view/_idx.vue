@@ -54,15 +54,13 @@ export default {
   },
   methods: {
     boardDelete (e) {
-        const idx = this.view.idx
-        const url = `/api/delete`
+        const idx = this.$route.params.idx
+        const url = `/api/delete/${idx}`
         const _this = this
-        if (confirm('삭제하시겠습니까?')) {
-          mh.postData(url, idx, data => {
-            alert('삭제되었습니다.')
-            _this.$router.push(`/board/list`)
-          })
-        }
+        mh.postData(url, idx, data => {
+          alert('삭제되었습니다.')
+          _this.$router.push(`/board/list`)
+        })
     }
   }
 }
