@@ -22,7 +22,7 @@ export default {
     AppLogo
   },
   created () {
-    console.log(this.$store.state.isMember)
+    
   },
   methods: {
     memberLogout(){

@@ -3,6 +3,7 @@ import sessionStorage from 'sessionstorage'
 
 const a = sessionStorage.getItem('member') ? true : false
 const isMember = a
+const member = sessionStorage.getItem('member') ? JSON.parse(sessionStorage.getItem('member')) : null
 
 const store = () => new Vuex.Store({
     state: {

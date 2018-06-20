@@ -17,7 +17,7 @@
 import mh from '~/plugins/mh'
 export default {
   created () {
-    if (!this.$store.state.isMember){
+    if (!this.$store.state.member){
       alert('로그인 후 이용 가능합니다.')
       this.$router.go(-1)
     }

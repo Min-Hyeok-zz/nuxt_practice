@@ -57,10 +57,11 @@ export default {
         const idx = this.$route.params.idx
         const url = `/api/delete/${idx}`
         const _this = this
-        mh.postData(url, idx, data => {
+        if (confirm('삭제하시겠습니까?')) {
           alert('삭제되었습니다.')
           _this.$router.push(`/board/list`)
-        })
+          mh.postData(url, idx, data => {})
+        }
     }
   }
 }
