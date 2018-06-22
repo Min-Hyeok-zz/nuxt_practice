@@ -1,9 +1,8 @@
+import Vue from 'vue';
 import Vuex from 'vuex'
 import sessionStorage from 'sessionstorage'
 
-const a = sessionStorage.getItem('member') ? true : false
-const isMember = a
-const member = sessionStorage.getItem('member') ? JSON.parse(sessionStorage.getItem('member')) : null
+Vue.use(Vuex)
 
 const store = () => new Vuex.Store({
     state: {
@@ -18,8 +17,15 @@ const store = () => new Vuex.Store({
         },
         logout (state) {
             state.isMember = false
-            state.member = {}
+            state.member = null
             sessionStorage.clear()
+        }
+    },
+    actions: {
+        nuxtServerInit({ commit }, { req }) {
+            if (req.session && req.session.member) {
+                commit('login', req.session.member)
+            }
         }
     }
 })

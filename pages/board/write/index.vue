@@ -3,10 +3,43 @@
     <div>
       <h1 class="title">글작성</h1>
         <form action="" method="post" @submit="boardAdd" class="form">
-            <input type="text" name="writer" id="writer" placeholder="작성자" class="form-control" required readonly v-model="this.$store.state.member[0]['name']">
-            <input type="text" name="subject" id="subject" placeholder="글제목" class="form-control" required>
-            <textarea name="content" id="content" class="form-control" placeholder="글내용" required></textarea>
-            <button type="submit" class="button--green">글작성</button>
+          <table id="form-table">
+            <colgroup>
+              <col width="20%">
+              <col width="80%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>작성자</td>
+                <td>
+                  <label>
+                    <input type="text" class="form-control" name="writer" placeholder="작성자" required>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>글제목</td>
+                <td>
+                  <label>
+                    <input type="text" class="form-control" name="subject" placeholder="글제목" required>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>글내용</td>
+                <td>
+                  <label>
+                    <textarea name="content" placeholder="글내용" required></textarea>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <button type="submit" class="button--green">글작성</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </form>
     </div>
   </section>
@@ -17,7 +50,7 @@
 import mh from '~/plugins/mh'
 export default {
   created () {
-    if (!this.$store.state.member){
+    if (!this.$store.state.isMember){
       alert('로그인 후 이용 가능합니다.')
       this.$router.go(-1)
     }

@@ -4,8 +4,8 @@
       <h1 class="title">글보기</h1>
       <table id="view-table">
         <colgroup>
-          <col width="20%">
-          <col width="80%">
+          <col width="15%">
+          <col width="85%">
         </colgroup>
         <tbody>
           <tr>
@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <td>작성일</td>
-            <td>{{view.date}}</td>
+            <td>{{view.date.substr(5,5)}}</td>
           </tr>
           <tr>
             <td>조회수</td>

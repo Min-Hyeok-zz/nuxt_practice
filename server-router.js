@@ -1,13 +1,12 @@
 const mysql = require('mysql');
-const db = mysql.createConnection(require('./config/db.js'))
-
-db.connect((err) => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log('mysql 이스 커넥티트')
-    }
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'nuxt'
 })
+
+db.connect()
 
 module.exports = (app, fs) => {
 
@@ -62,6 +61,7 @@ module.exports = (app, fs) => {
         })
     })
 
+    //회원가입
     app.post('/api/member', (req, res) => {
         const id = req.body.id
         const pw = req.body.pw
@@ -78,13 +78,20 @@ module.exports = (app, fs) => {
         })
     })
 
+    //로그인
     app.post('/api/login', (req, res) => {
         const id = req.body.id
         const pw = req.body.pw
         const sql = `select * from member where id=? and pw=?`
         db.query(sql, [id, pw], (err, results) => {
+            req.session.member = req.body
             res.json(results)
         })
+    })
+    
+    //로그아웃
+    app.post('/api/logout', (req,res) => {
+        delete req.session.member
     })
 
 }

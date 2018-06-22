@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-var router = require('./server-router')(app,fs);
+const router = require('./server-router')(app,fs);
 
 const isProd = process.env.NODE_ENV === 'production'
 const nuxt = new Nuxt({ dev: !isProd })
@@ -29,6 +29,6 @@ if (!isProd) {
 
 app.use(nuxt.render)
 
-var server = app.listen(3000, function(){
+const server = app.listen(3000, function(){
     console.log('3000 port');
 })
